@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="main">
+    <ion-title><ion-img id="icon" src="../../assets/icon/icon_trans.png"></ion-img></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ng-container *ngFor="let m of matchedList">
+    <ion-card button="true">
+      <ion-card-header routerLink="/profile/{{m.id}}">
+        <ion-card-subtitle>{{m.id}}さん<br>「いいね！」した日付: {{m.date}}</ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+  </ng-container>
+
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button color="main" (click)="getList()">
+      <ion-icon name="reload-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <!-- 記事の投稿対象混乱を防ぐために, 仕様から外しておく
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button color="base-green" (click)="navigateToSelf()">
+      <ion-icon name="newspaper-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="base-green" (click)="navigateToEdit()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  -->
+</ion-content>
